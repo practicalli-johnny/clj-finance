@@ -92,6 +92,29 @@
   (generate-prices 24 42))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Creating a map of prices and other related data
+
+;; generate a map of price key and value from the price list
+(take 10 (map (fn [x] {:price x}) pricelist))
+
+
+
+(take 10 (map (fn [times prices]
+                [times prices])
+              (map (fn [time] {:time time}) (iterate inc 0))
+              (map (fn [price] {:price price}) pricelist)))
+;; => ([{:time 0} {:price 28.232748438745983}]
+;;     [{:time 1} {:price 33.169702466700485}]
+;;     [{:time 2} {:price 29.324335235434006}]
+;;     [{:time 3} {:price 33.98095722884446}]
+;;     [{:time 4} {:price 37.16691794371352}]
+;;     [{:time 5} {:price 29.380244416225363}]
+;;     [{:time 6} {:price 34.9344987988658}]
+;;     [{:time 7} {:price 27.989664999481572}]
+;;     [{:time 8} {:price 29.327083411249394}]
+;;     [{:time 9} {:price 31.398797232263323}])
+
 
 
 

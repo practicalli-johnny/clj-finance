@@ -66,6 +66,14 @@
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Part 2 - writing a named function for generating numbers
+
+(defn generate-prices [lower-bound upper-bound]
+  (filter
+   (fn [number] (>= number lower-bound))
+   (repeatedly (fn [] (rand upper-bound)))))
+
 
 
 

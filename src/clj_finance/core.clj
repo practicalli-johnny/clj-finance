@@ -78,6 +78,18 @@
       (generate-prices 24 42))
 ;; => (25.860035391116053 41.38545427006588 33.28994474087834 27.767565843611763 40.36057621882923 39.813902069133896 37.943218630223846 25.36894807127188 30.999469945668903 40.75929024966659)
 
+;; Using let to capture the generated prices in a local name (a bit superfluous)
+
+(let [pricelist (take 10 (generate-prices 24 42))]
+  (count pricelist))
+;; => 10
+
+
+;; Give our values more context by using a map (key value pairs)
+
+;; Create an infinite list of prices within lower and upper bounds
+(def pricelist
+  (generate-prices 24 42))
 
 
 

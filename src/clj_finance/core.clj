@@ -117,6 +117,15 @@
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Merge each time and price into a single map
+
+(take 10
+      (->> (map (fn [times prices]
+                     [times prices])
+                   (map (fn [time] g {:time time}    iterate inc 0))
+                   (map (fn [price] {:price price}) pricelist))
+              (map (fn [stock-price] (merge (first stock-price) (second stock-price))))))
 
 
 

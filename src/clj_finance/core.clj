@@ -128,6 +128,15 @@
               (map (fn [stock-price] (merge (first stock-price) (second stock-price))))))
 
 
+(defn generate-timeseries
+  "Generate a timeseries of stock prices randomly, but within upper and lower bounds"
+  [pricelist]
+  (map (fn [time price]
+         {:time time :price price}
+         (iterate inc 0)
+         pricelist)))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; str verses format - performance
